@@ -1,0 +1,59 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
+<link rel="stylesheet" type="text/css" href="/styles.css" />
+<title>derpac designs.</title>
+</head>
+
+<body>
+	<h1>derpac designs.</h1>
+	<div id="designs_container" style="">
+		{% for i in ['derpac_scrabble.png', 'ASDA_GlueStick.png', 'ForTheRecords_Derpac.png', 'WOK.png', 'anteater2.PNG', 'derpac_pc.png', 'lampp.png'] %}
+		<div data-id="{{i}}" class="design">
+			<img src="/static/{{i}}" />
+			<p class="vote_text"> vote me! </p>
+		</div>
+		{% endfor %}
+	</div>
+<style>
+:root {
+	--default-bg: #fefefe;
+	--dark-bg: #b8b8b8;
+	--selected-bg:#383838;
+	--default-fg: #454545;
+	--red:        #ab4642;
+	--orange:     #dc9656;
+	--yellow:     #f7ca88;
+	--green:      #a1b56c;
+	--teal:       #86c1b9;
+	--blue:       #7cafc2;
+	--purple:     #ba8baf;
+	--brown:      #a16946;
+}
+#designs_container {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.design {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 2em;
+}
+.design img {
+	max-width: 100%;
+	border: 1em solid;
+	box-sizing: border-box;
+}
+
+.vote_text {
+	background-color: var(--blue);
+}
+</style>
+
+<script src="/static/designs.js"> </script>
+</body>
