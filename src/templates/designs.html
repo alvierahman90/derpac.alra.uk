@@ -1,12 +1,7 @@
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
-<link rel="stylesheet" type="text/css" href="/styles.css" />
-<title>vote | derpac designs.</title>
-</head>
-
-<body>
-	<h1>vote for derpac designs.</h1>
+{% extends "base.html" %}
+{% block title %} derpac designs. {% endblock %}
+{% block body %}
+	<h1>derpac designs.</h1>
 	<h2>click on your favorite design to vote!</h2>
 	<h2>view results <a style="color: inherit" href="/designs/votes">here</a></h2>
 	<div id="designs_container" style="">
@@ -58,4 +53,4 @@
 </style>
 
 <script src="/static/designs.js"> </script>
-</body>
+{% endblock %}
