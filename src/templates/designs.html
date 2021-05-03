@@ -9,7 +9,7 @@
 	<h1>vote for derpac designs.</h1>
 	<h2>click on your favorite design to vote!</h2>
 	<div id="designs_container" style="">
-		{% for i in ['derpac_scrabble.png', 'ASDA_GlueStick.png', 'ForTheRecords_Derpac.png', 'WOK.png', 'anteater2.PNG', 'derpac_pc.png', 'lampp.png'] %}
+		{% for i in designs %}
 		<div data-id="{{i}}" class="design">
 			<img src="/static/{{i}}" />
 			<p class="vote_text"> vote me! </p>

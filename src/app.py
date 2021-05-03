@@ -5,18 +5,17 @@ from flask import send_from_directory
 from flask import request
 
 import json
+import glob
+from os.path import basename
 
 app = Flask(__name__)
 
 @app.route('/designs')
 def designs():
-    return render_template('designs.html')
+    return render_template('designs.html',
+            designs=[basename(x) for x in glob.glob('static/*')])
 
-@app.route('/styles.css')
-def styles():
-    return send_file('./styles.css')
-
-@app.route('/static/<file>')
+@app.route('/designs/static/<file>')
 def static_file(file):
     return send_from_directory('static', file)
 
@@ -32,6 +31,11 @@ def designs_vote(design):
 
     print(votes)
     return json.dumps(votes)
+
+# for development purposes only... in production, stylesheet will be from sitewide styles
+@app.route('/styles.css')
+def styles():
+    return send_file('styles.css')
 
 @app.route('/designs/votes')
 def designs_votes():
