@@ -8,6 +8,7 @@ vote for your favorite [derpac](https://github.com/derpac/) design!
         $ git clone https://github.com/alvierahman90/derpac.designs
         $ cd derpac.designs
         $ docker build -t derpac.designs .
+        $ mkdir options && echo '{}' > votes.json
         $ docker run -d -p 8000:80 \
             --name derpac.designs \
             --restart unless-stopped \
