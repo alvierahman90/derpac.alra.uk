@@ -13,11 +13,15 @@ app = Flask(__name__)
 @app.route('/designs')
 def designs():
     return render_template('designs.html',
-            designs=[basename(x) for x in glob.glob('static/*')])
+            designs=[basename(x) for x in glob.glob('options/*')])
 
 @app.route('/designs/static/<file>')
 def static_file(file):
     return send_from_directory('static', file)
+
+@app.route('/designs/options/<file>')
+def options_file(file):
+    return send_from_directory('options', file)
 
 @app.route('/designs/vote/<design>')
 def designs_vote(design):
