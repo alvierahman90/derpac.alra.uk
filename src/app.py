@@ -50,4 +50,7 @@ def designs_votes():
         else:
             r[votes[ip]] = 1
 
-    return json.dumps(r)
+    if request.args.get('json') is not None:
+        return json.dumps(r)
+
+    return render_template('designs_votes.html', votes=r)

@@ -1,0 +1,49 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
+<link rel="stylesheet" type="text/css" href="/styles.css" />
+<title>vote | derpac designs.</title>
+</head>
+
+<body>
+	<h1>votes for derpac designs.</h1>
+
+	<div>
+		<canvas id="myChart"></canvas>
+	</div>
+
+	<style>
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script>
+		var votes = {}
+		xhttp = new XMLHttpRequest()
+		xhttp.onreadystatechange = function() {
+			if(this.readyState == 4 && this.status == 200) {
+				votes = JSON.parse(this.responseText)
+				console.log(votes)
+		config = {
+			type: 'doughnut',
+			data: {
+				labels: Object.keys(votes),
+				datasets: [
+					{
+						labels: Object.keys(votes),
+						data: Object.values(votes)
+					}
+				]
+			},
+			options: {}
+		}
+
+		var myChart = new Chart(
+			document.getElementById('myChart'),
+			config
+		);
+			}
+		}
+		xhttp.open("GET", "/designs/votes?json", true)
+		xhttp.send()
+
+	</script>
+</body>
