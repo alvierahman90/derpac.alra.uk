@@ -36,7 +36,7 @@ def designs_vote(design):
     print(votes)
     return json.dumps(votes)
 
-# for development purposes only... in production, stylesheet will be from sitewide styles
+# for development purposes only... in production, stylesheet will be served by nginx
 @app.route('/styles.css')
 def styles():
     return send_file('styles.css')
