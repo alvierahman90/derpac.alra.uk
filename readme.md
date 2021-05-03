@@ -10,7 +10,7 @@ vote for your favorite [derpac](https://github.com/derpac/) design!
         $ docker build -t derpac.designs .
         $ docker run -p 8000:80 \
             --mount type=bind,source=`pwd`/votes.json,target=/usr/src/app/votes.json \
-            --mount type=bind,source=`pwd`/options.json,target=/usr/src/app/options \
+            --mount type=bind,source=`pwd`/options,target=/usr/src/app/options \
             -t derpac.designs
         ```
 
