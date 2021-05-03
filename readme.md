@@ -1,6 +1,6 @@
 # derpac.designs
 
-vote for your favorite derpac design!
+vote for your favorite [derpac](https://github.com/derpac/) design!
 
 1. Install docker
 2. 
