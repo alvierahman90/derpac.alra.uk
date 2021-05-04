@@ -3,7 +3,7 @@
 NAME="derpace.designs"
 
 docker rm -f "$NAME"
-docker build -t "$NAME" "`dirname $0`
+docker build -t "$NAME" "`dirname $0`"
 
 docker run -d -p 8000:80 \
 	--name "$NAME" \
