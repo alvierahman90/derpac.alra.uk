@@ -28,7 +28,7 @@ def designs_vote(design):
     with open('votes.json', 'r') as fp:
         votes = json.load(fp)
 
-    votes[request.environ.get('HTTP_X_REAL_IP', request.remote_addr)] = design
+    votes[request.headers['X-Real-IP']] = design
 
     with open('votes.json', 'w+') as fp:
         json.dump(votes, fp)
