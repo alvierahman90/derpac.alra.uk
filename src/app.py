@@ -28,13 +28,15 @@ def designs_vote(design):
     with open('votes.json', 'r') as fp:
         votes = json.load(fp)
 
-    votes[request.headers['X-Real-IP']] = design
+    ip = request.headers['X-Real-IP']
+
+    votes[ip] = design
 
     with open('votes.json', 'w+') as fp:
         json.dump(votes, fp)
 
     print(votes)
-    return json.dumps(votes)
+    return json.dumps({ ip: design})
 
 # for development purposes only... in production, stylesheet will be served by nginx
 @app.route('/styles.css')
