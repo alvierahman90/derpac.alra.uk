@@ -28,7 +28,7 @@ def designs_vote(design):
     with open('votes.json', 'r') as fp:
         votes = json.load(fp)
 
-    ip = request.headers['X-Real-IP']
+    ip = request.headers.get('X-Real-IP', '0.0.0.0')
 
     votes[ip] = design
 
