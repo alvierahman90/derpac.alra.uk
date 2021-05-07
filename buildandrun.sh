@@ -2,6 +2,7 @@
 
 NAME="derpace.designs"
 
+git pull
 docker rm -f "$NAME"
 docker build -t "$NAME" "`dirname $0`"
 
