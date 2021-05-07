@@ -17,7 +17,13 @@
 		xhttp.onreadystatechange = function() {
 			if(this.readyState == 4 && this.status == 200) {
 				votes = JSON.parse(this.responseText)
+				myChart.config.data.labels = Object.keys(votes)
+				myChart.config.data.datasets[0].labels = Object.keys(votes)
+				myChart.config.data.datasets[0].data = Object.values(votes)
+				myChart.update()
 				console.log(votes)
+			}
+		}
 		config = {
 			type: 'doughnut',
 			data: {
@@ -44,9 +50,11 @@
 			document.getElementById('myChart'),
 			config
 		);
-			}
+		function updateChart() {
+			xhttp.open("GET", "/designs/votes?json", true)
+			xhttp.send()
 		}
-		xhttp.open("GET", "/designs/votes?json", true)
-		xhttp.send()
+		setInterval(updateChart, 1000)
+		updateChart()
 	</script>
 {% endblock %}
