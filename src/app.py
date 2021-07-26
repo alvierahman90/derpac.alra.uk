@@ -60,3 +60,7 @@ def designs_votes():
         return json.dumps(r)
 
     return render_template('designs_votes.html', votes=r)
+
+@app.route('/peen')
+def peen():
+    return <h1>Peen</h1>
