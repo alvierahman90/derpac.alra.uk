@@ -63,4 +63,4 @@ def designs_votes():
 
 @app.route('/peen')
 def peen():
-    return <h1>Peen</h1>
+    return "<h1>Peen</h1>"
